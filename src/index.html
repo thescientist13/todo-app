@@ -19,13 +19,39 @@
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./components/todo-list/todo-list.js"></script>
+    <style>
+      * {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.2em;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
 
   <body>
+    <main>
 
-    <x-app></x-app>
-    
+      <!-- <section>
+        <x-header></x-header>
+      </section> -->
+      
+      <section>
+        <h1>Hello World</h1>
+        <wcc-todo-list></wcc-todo-list>
+      </section>
+
+      <!-- <section>
+        <x-footer></x-footer>
+      </section> -->
+
+    </main>
   </body>
 
 </html>

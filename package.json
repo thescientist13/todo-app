@@ -15,24 +15,18 @@
     "build": "greenwood build",
     "develop": "greenwood develop",
     "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.js\"",
-    "serve": "npm run clean && greenwood serve",
+    "serve": "npm run clean && npm run build && greenwood serve",
     "start": "npm run develop",
     "test": "wtr",
     "test:tdd": "npm test -- --watch"
   },
-  "dependencies": {
-    "lit": "^2.1.1"
-  },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
     "@greenwood/cli": "^0.26.0",
-    "@greenwood/plugin-import-css": "^0.26.0",
-    "@greenwood/plugin-postcss": "^0.26.0",
     "@web/test-runner": "^0.13.13",
     "@web/test-runner-junit-reporter": "^0.4.4",
     "@web/test-runner-puppeteer": "^0.10.0",
     "eslint": "^8.20.0",
-    "postcss-nested": "^4.1.2",
     "rimraf": "^2.6.2"
   }
 }
