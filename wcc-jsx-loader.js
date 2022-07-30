@@ -35,16 +35,6 @@ const greenwoodPluginJsx = (options = {}) => {
     type: 'resource',
     name: 'plugin-jsx:resource',
     provider: (compilation) => new JsxResource(compilation, options)
-    // }, {
-    //   type: 'rollup',
-    //   name: 'plugin-import-typescript:rollup',
-    //   provider: (compilation) => {
-    //     const compilerOptions = getCompilerOptions(compilation.context.projectDirectory, options.extendConfig);
-
-    //     return [
-    //       rollupPluginTypescript(compilerOptions)
-    //     ];
-    //   }
   }];
 };
 
