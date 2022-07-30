@@ -1,9 +1,7 @@
-import { greenwoodPluginImportCss } from '@greenwood/plugin-import-css';
-import { greenwoodPluginPostCss } from '@greenwood/plugin-postcss';
+import { greenwoodPluginJsx } from './wcc-jsx-loader.js';
 
 export default {
   plugins: [
-    greenwoodPluginPostCss(),
-    ...greenwoodPluginImportCss()
+    ...greenwoodPluginJsx()
   ]
 };

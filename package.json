@@ -2,7 +2,6 @@
   "name": "todo-app",
   "version": "1.0.0",
   "description": "Todo App example as an \"evergreen\" project",
-  "main": "src/index.js",
   "type": "module",
   "repository": "git@github.com:ProjectEvergreen/todo-app.git",
   "author": "Owen Buckley <owen@thegreenhouse.io>",
@@ -19,6 +18,9 @@
     "start": "npm run develop",
     "test": "wtr",
     "test:tdd": "npm test -- --watch"
+  },
+  "overrides": {
+    "wc-compiler": "https://github.com/ProjectEvergreen/wcc#feature/issue-69-jsx-transformations"
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
