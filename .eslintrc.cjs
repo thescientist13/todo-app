@@ -1,11 +1,14 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   env: {
-    browser: true,
-    node: false
+    browser: false,
+    node: true
   },
   rules: {
     'comma-dangle': [2, 'never'],
@@ -40,7 +43,11 @@ module.exports = {
     'valid-jsdoc': 0,
     'valid-typeof': 0,
     'no-unexpected-multiline': 0,
+<<<<<<< HEAD
     'accessor-pairs': 2,
+=======
+    'accessor-pairs': 1,
+>>>>>>> f5e961a (eslint and JSX support)
     'block-scoped-var': 2,
     'complexity': 2,
     'consistent-return': 0,
