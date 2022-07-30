@@ -16,7 +16,7 @@
     "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.{js,jsx}\"",
     "serve": "npm run clean && npm run build && greenwood serve",
     "start": "npm run develop",
-    "test": "wtr",
+    "test": "node --experimental-loader ./test-jsx-loader.js $(yarn bin wtr)",
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {

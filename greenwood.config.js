@@ -1,7 +1,7 @@
-import { greenwoodPluginJsx } from './wcc-jsx-loader.js';
+import { greenwoodPluginImportJsx } from './greenwood-plugin-import-jsx.js';
 
 export default {
   plugins: [
-    ...greenwoodPluginJsx()
+    ...greenwoodPluginImportJsx()
   ]
 };

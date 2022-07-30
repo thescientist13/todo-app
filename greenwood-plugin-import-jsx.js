@@ -30,14 +30,14 @@ class JsxResource extends ResourceInterface {
   }
 }
 
-const greenwoodPluginJsx = (options = {}) => {
+const greenwoodPluginImportJsx = (options = {}) => {
   return [{
     type: 'resource',
-    name: 'plugin-jsx:resource',
+    name: 'plugin-import-jsx:resource',
     provider: (compilation) => new JsxResource(compilation, options)
   }];
 };
 
 export {
-  greenwoodPluginJsx
+  greenwoodPluginImportJsx
 };
