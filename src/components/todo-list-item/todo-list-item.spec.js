@@ -14,7 +14,7 @@ describe('Components/TodoListItem', () => {
       await todoListItem.updateComplete;
     });
       
-    it('should have a greeting', () => { 
+    it('should have no content output', () => { 
       expect(todoListItem.textContent).to.equal('');
     });
 
