@@ -43,11 +43,7 @@ module.exports = {
     'valid-jsdoc': 0,
     'valid-typeof': 0,
     'no-unexpected-multiline': 0,
-<<<<<<< HEAD
-    'accessor-pairs': 2,
-=======
     'accessor-pairs': 1,
->>>>>>> f5e961a (eslint and JSX support)
     'block-scoped-var': 2,
     'complexity': 2,
     'consistent-return': 0,

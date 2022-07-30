@@ -13,14 +13,14 @@
     "clean": "rimraf ./public ./reports",
     "build": "greenwood build",
     "develop": "greenwood develop",
-    "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.js\"",
+    "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.{js,jsx}\"",
     "serve": "npm run clean && npm run build && greenwood serve",
     "start": "npm run develop",
     "test": "wtr",
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {
-    "wc-compiler": "https://github.com/ProjectEvergreen/wcc#feature/issue-69-jsx-transformations"
+    "wc-compiler": "https://github.com/ProjectEvergreen/wcc#feature/issue-69-jsx-transformations#647ebf4bb4ecfab36f4525bef7e6371a325ad596"
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
