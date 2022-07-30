@@ -11,12 +11,12 @@
   },
   "scripts": {
     "clean": "rimraf ./public ./reports",
-    "build": "greenwood build",
+    "build": "node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/greenwood build",
     "develop": "greenwood develop",
     "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.{js,jsx}\"",
-    "serve": "npm run clean && npm run build && greenwood serve",
+    "serve": "npm run clean && node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/greenwood serve",
     "start": "npm run develop",
-    "test": "node --experimental-loader ./test-jsx-loader.js $(yarn bin wtr)",
+    "test": "node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/wtr",
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {
