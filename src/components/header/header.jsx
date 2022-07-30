@@ -4,6 +4,7 @@ export default class Header extends HTMLElement {
     this.render();
   }
 
+  // inline CSS / <style> not supported
   render() {
     return (
       <header>        

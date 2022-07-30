@@ -43,7 +43,7 @@ class TodoListItem extends HTMLElement {
         {task}
         <input class="complete-todo" type="checkbox" onchange={this.dispatchCompleteTodoEvent}/>
         <span>{completionStatus}</span>
-        <button onclick={this.dispatchDeleteTodoEvent}>❌</button>
+        <button class="delete-todo" onclick={this.dispatchDeleteTodoEvent}>❌</button>
       </span>
     );
   }
