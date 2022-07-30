@@ -29,10 +29,10 @@ export default class BadgeComponent extends HTMLElement {
   render() {
     const { count, predicate } = this;
     const conditionalClass = predicate ? 'met' : 'unmet';
-    const conditionalText = predicate ? '🥳' : '';
+    const conditionalText = predicate ? ' 🥳' : '';
 
     return (
-      <span class={conditionalClass}>{count} {conditionalText}</span>
+      <span class={conditionalClass}>{count}{conditionalText}</span>
     );
   }
 }

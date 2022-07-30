@@ -1,7 +1,7 @@
 import { expect } from '@esm-bundle/chai';
 import './header.jsx';
 
-describe('Header Component', () => {
+describe('Components/Header', () => {
   let header;
 
   beforeEach(async () => {
