@@ -1,16 +1,50 @@
-export default class TodoListItem extends HTMLElement {
+class TodoListItem extends HTMLElement {
+
   constructor() {
     super();
-    console.log('ENTER TodoListItem');
+    this.todo = {};
   }
 
-  connectedCallback() {
-    this.render();
+  // TODO would be nice to get this boilerplate reactivity from WCC
+  static get observedAttributes () {
+    return ['todo'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (newValue !== oldValue) {
+      if (name === 'todo') {
+        this.todo = JSON.parse(newValue);
+      }
+
+      this.render();
+    }
+  }
+
+  dispatchDeleteTodoEvent() {
+    document.dispatchEvent(
+      new CustomEvent('deleteTodo', { detail: this.todo.id })
+    );
+  }
+
+  dispatchCompleteTodoEvent() {
+    document.dispatchEvent(
+      new CustomEvent('completeTodo', { detail: this.todo.id })
+    );
   }
 
   render() {
+    const { completed, task } = this.todo;
+    const completionStatus = completed ? '✅' : '⛔';
+    
+    // TODO restore checked toggle through attribute
+    // https://github.com/ProjectEvergreen/todo-app/blob/9b0f035daca7c6cc64264bb426837f2efec9d68b/src/components/todo-list-item/todo-list-item.js#L42
     return (
-      <h4>This is a todo list item</h4>
+      <span>
+        {task}
+        <input class="complete-todo" type="checkbox" onchange={this.dispatchCompleteTodoEvent}/>
+        <span>{completionStatus}</span>
+        <button onclick={this.dispatchDeleteTodoEvent}>❌</button>
+      </span>
     );
   }
 }
