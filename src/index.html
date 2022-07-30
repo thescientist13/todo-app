@@ -18,8 +18,6 @@
     <meta name="twitter:creator" content="@PrjEvergreen" />
 
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-    <script type="module" src="./components/todo-list/todo-list.jsx"></script>
     <style>
       * {
         font-family: 'Raleway', sans-serif;
@@ -33,24 +31,19 @@
         box-sizing: border-box;
       }
     </style>
+
+    <script type="module" src="./components/header/header.jsx"></script>
+    <script type="module" src="./components/footer/footer.jsx"></script>
+    <script type="module" src="./components/todo-list/todo-list.jsx"></script>
   </head>
 
   <body>
     <main>
-
-      <!-- <section>
-        <x-header></x-header>
-      </section> -->
       
-      <section>
-        <h1>Todo App Example</h1>
-        <wcc-todo-list></wcc-todo-list>
-      </section>
-
-      <!-- <section>
-        <x-footer></x-footer>
-      </section> -->
-
+      <wcc-header></wcc-header>
+      <wcc-todo-list></wcc-todo-list>
+      <wcc-footer></wcc-footer>
+      
     </main>
   </body>
 
