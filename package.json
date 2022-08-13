@@ -20,7 +20,7 @@
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {
-    "wc-compiler": "https://github.com/ProjectEvergreen/wcc#feature/issue-69-jsx-transformations#647ebf4bb4ecfab36f4525bef7e6371a325ad596"
+    "wc-compiler": "~0.6.0"
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
