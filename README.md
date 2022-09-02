@@ -18,5 +18,3 @@ Tasks to get you going working on this project:
 
 ### Misc
 - Visual Studio Code has [an extension to support lit-html](https://marketplace.visualstudio.com/items?itemName=bierner.lit-html)
-
-test
