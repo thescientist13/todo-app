@@ -10,11 +10,8 @@ export default class TodoList extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    // TODO shim addEventListener in WCC
-    if (document.addEventListener) {
-      document.addEventListener('deleteTodo', (event) => this.deleteTodo(event.detail));
-      document.addEventListener('completeTodo', (event) => this.completeTodo(event.detail));
-    }
+    document.addEventListener('deleteTodo', (event) => this.deleteTodo(event.detail));
+    document.addEventListener('completeTodo', (event) => this.completeTodo(event.detail));
   }
 
   addTodo() {
