@@ -5,21 +5,6 @@ class TodoListItem extends HTMLElement {
     this.todo = {};
   }
 
-  // TODO would be nice to get this boilerplate reactivity from WCC
-  static get observedAttributes () {
-    return ['todo'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (newValue !== oldValue) {
-      if (name === 'todo') {
-        this.todo = JSON.parse(newValue);
-      }
-
-      this.render();
-    }
-  }
-
   dispatchDeleteTodoEvent() {
     document.dispatchEvent(
       new CustomEvent('deleteTodo', { detail: this.todo.id })
