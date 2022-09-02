@@ -7,7 +7,7 @@
   "author": "Owen Buckley <owen@thegreenhouse.io>",
   "license": "MIT",
   "engines": {
-    "node": ">=16.15.0"
+    "node": "16.15.0"
   },
   "scripts": {
     "clean": "rimraf ./public ./reports",
