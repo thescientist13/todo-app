@@ -1,52 +1,48 @@
+import fs from 'node:fs/promises';
 import { defaultReporter } from '@web/test-runner';
-import { greenwoodPluginImportJsx } from './greenwood-plugin-import-jsx.js';
 import { junitReporter } from '@web/test-runner-junit-reporter';
-import path from 'path';
+import { greenwoodPluginImportJsx } from '@greenwood/plugin-import-jsx';
+import ts from 'typescript';
 
-// create a direct instance of ImportJsxResource
 const importJsxResource = greenwoodPluginImportJsx()[0].provider({});
+const configPath = new URL('./tsconfig.json', import.meta.url);
+const { config } = ts.readConfigFile(configPath.pathname, ts.sys.readFile);
+const { options: compilerOptions } = ts.convertCompilerOptionsFromJson(config.compilerOptions, process.cwd());
 
+/** @type {import('@web/test-runner').TestRunnerConfig} */
 export default {
-  files: './src/**/*.spec.js',
+  files: './src/**/*.spec.ts',
   nodeResolve: true,
+  mimeTypes: { '**/*.ts': 'js', '**/*.tsx': 'js' },
   reporters: [
     defaultReporter({ reportTestResults: true, reportTestProgress: true }),
-    junitReporter({
-      outputPath: './reports/test-results.xml'
-    })
+    junitReporter({ outputPath: './reports/test-results.xml' })
   ],
   coverage: true,
-  coverageConfig: {
-    reportDir: './reports'
-  },
+  coverageConfig: { reportDir: './reports' },
   plugins: [{
     name: 'import-jsx',
     async transform(context) {
-      const { url } = context.request;
-      const shouldServe = await importJsxResource.shouldServe(url);
+      const url = new URL(`.${context.path}`, import.meta.url);
 
-      if (shouldServe) {
-        const jsxResource = await importJsxResource.serve(path.join(process.cwd(), url));
-        const { body, contentType } = jsxResource;
+      if (await importJsxResource.shouldServe(url)) {
+        const response = await importJsxResource.serve(url);
 
-        return {
-          body,
-          headers: {
-            'content-type': contentType
-          }
-        };
+        return { body: await response.text(), type: 'js' };
       }
     }
-  }],
-  middleware: [
-    function rewriteIndex(context, next) {
-      const { url } = context.request;
+  }, {
+    // strip types from .ts tests before serving them to the browser
+    name: 'transpile-typescript',
+    async transform(context) {
+      const url = new URL(`.${context.path}`, import.meta.url);
 
-      if (url.indexOf('/assets') === 0) {
-        context.request.url = path.join(process.cwd(), 'src', url);
+      if (url.pathname.endsWith('.ts')) {
+        const contents = await fs.readFile(url, 'utf-8');
+        const { outputText } = ts.transpileModule(contents, { compilerOptions, fileName: url.pathname });
+
+        return { body: outputText, type: 'js' };
       }
-
-      return next();
     }
-  ]
+  }]
 };

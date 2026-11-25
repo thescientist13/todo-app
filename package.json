@@ -13,7 +13,7 @@
     "start": "npm run develop",
     "check": "tsc",
     "lint": "eslint --flag unstable_native_nodejs_ts_config",
-    "test": "node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/wtr",
+    "test": "wtr",
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {
@@ -24,10 +24,10 @@
     "@esm-bundle/chai": "^4.3.4",
     "@greenwood/cli": "^0.34.0-alpha.4",
     "@greenwood/plugin-import-jsx": "^0.34.0-alpha.4",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.19.4",
-    "@web/test-runner": "^0.13.13",
-    "@web/test-runner-junit-reporter": "^0.4.4",
-    "@web/test-runner-puppeteer": "^0.10.0",
+    "@web/test-runner": "^1.0.1",
+    "@web/test-runner-junit-reporter": "^1.0.2",
     "eslint": "^10.15.0",
     "globals": "^15.15.0",
     "typescript": "^6.0.3",

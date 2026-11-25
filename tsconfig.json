@@ -12,6 +12,6 @@
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "wc-compiler",
-    "types": ["node"]
+    "types": ["node", "mocha"]
   },
 }

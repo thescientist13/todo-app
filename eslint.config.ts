@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig(
   {
-    ignores: ['.greenwood/**', 'node_modules/**', 'public/**', 'reports/**', 'src/**/*.spec.js']
+    ignores: ['.greenwood/**', 'node_modules/**', 'public/**', 'reports/**']
   },
   {
     files: ['**/*.{js,ts,tsx}'],
@@ -24,6 +24,10 @@ export default defineConfig(
   {
     files: ['src/**/*.{js,ts,tsx}'],
     languageOptions: { globals: globals.browser }
+  },
+  {
+    files: ['src/**/*.spec.ts'],
+    languageOptions: { globals: globals.mocha }
   },
   {
     files: ['*.{js,ts}'],

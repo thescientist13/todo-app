@@ -1,26 +1,23 @@
 import { expect } from '@esm-bundle/chai';
-import './todo-list.jsx';
+import TodoList from './todo-list.tsx';
 
 describe('Components/TodoList', () => {
 
   describe('Default Behavior', () => {
-    let todoList;
+    let todoList: TodoList;
 
-    beforeEach(async () => {
-      todoList = document.createElement('wcc-todo-list');
-  
+    beforeEach(() => {
+      todoList = document.createElement('wcc-todo-list') as TodoList;
+
       document.body.appendChild(todoList);
-  
-      await todoList.updateComplete;
     });
-      
-    it('should have no content output', () => { 
+
+    it('should have no content output', () => {
       expect(todoList.textContent).to.contain('My Todo List');
     });
 
     afterEach(() => {
       todoList.remove();
-      todoList = null;
     });
   });
 

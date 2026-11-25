@@ -1,17 +1,15 @@
 import { expect } from '@esm-bundle/chai';
-import './badge.jsx';
+import BadgeComponent from './badge.tsx';
 
 describe('Components/Badge', () => {
 
   describe('Default Behavior', () => {
-    let badge;
+    let badge: BadgeComponent;
 
-    beforeEach(async () => {
-      badge = document.createElement('wcc-badge');
-  
+    beforeEach(() => {
+      badge = document.createElement('wcc-badge') as BadgeComponent;
+
       document.body.appendChild(badge);
-  
-      await badge.updateComplete;
     });
 
     it('should have only have one output element', () => {
@@ -34,21 +32,22 @@ describe('Components/Badge', () => {
 
     afterEach(() => {
       badge.remove();
-      badge = null;
-    });  
+    });
   });
 
   describe('Custom Count and Predicate', () => {
-    let badge;
+    let badge: BadgeComponent;
 
-    beforeEach(async () => {
-      badge = document.createElement('wcc-badge');
-      badge.setAttribute('count', 2);
+    afterEach(() => {
+      badge.remove();
+    });
+
+    beforeEach(() => {
+      badge = document.createElement('wcc-badge') as BadgeComponent;
+      badge.setAttribute('count', '2');
       badge.setAttribute('predicate', 'true');
-  
+
       document.body.appendChild(badge);
-  
-      await badge.updateComplete;
     });
 
     it('should have only have one output element', () => {
