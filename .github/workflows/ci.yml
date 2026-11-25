@@ -5,21 +5,17 @@ on: [pull_request]
 jobs:
 
   build:
-    runs-on: ubuntu-20.04
-
-    strategy:
-      matrix:
-        node: [16.15.0]
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v6
+    - name: Use Node.js
+      uses: actions/setup-node@v6
       with:
-        node-version: ${{ matrix.node }}
+        node-version: 24
     - name: Installing project dependencies
       run: |
-        npm ci --legacy-peer-deps
+        npm ci
     - name: Lint
       run: |
         npm run lint

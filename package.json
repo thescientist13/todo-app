@@ -6,29 +6,27 @@
   "repository": "git@github.com:ProjectEvergreen/todo-app.git",
   "author": "Owen Buckley <owen@thegreenhouse.io>",
   "license": "MIT",
-  "engines": {
-    "node": "16.15.0"
-  },
   "scripts": {
-    "clean": "rimraf ./public ./reports",
-    "build": "node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/greenwood build",
-    "develop": "greenwood develop",
-    "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.{js,jsx}\"",
-    "serve": "npm run clean && node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/greenwood serve",
+    "dev": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood develop",
+    "build": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood build",
+    "serve": "NODE_OPTIONS='--import @greenwood/cli/register' greenwood serve",
     "start": "npm run develop",
+    "check": "tsc",
+    "lint": "eslint \"*.{js,cjs}\" \"./src/**/*.{js,jsx}\"",
     "test": "node --experimental-loader ./node_modules/wc-compiler/src/jsx-loader.js ./node_modules/.bin/wtr",
     "test:tdd": "npm test -- --watch"
   },
   "overrides": {
-    "wc-compiler": "~0.6.0"
+    "wc-compiler": "~0.24.0-rc.0"
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
-    "@greenwood/cli": "^0.26.0",
+    "@greenwood/cli": "^0.34.0-alpha.4",
+    "@greenwood/plugin-import-jsx": "^0.34.0-alpha.4",
     "@web/test-runner": "^0.13.13",
     "@web/test-runner-junit-reporter": "^0.4.4",
     "@web/test-runner-puppeteer": "^0.10.0",
     "eslint": "^8.20.0",
-    "rimraf": "^2.6.2"
+    "typescript": "^6.0.3"
   }
 }
