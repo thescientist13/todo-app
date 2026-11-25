@@ -23,6 +23,7 @@
     "@esm-bundle/chai": "^4.3.4",
     "@greenwood/cli": "^0.34.0-alpha.4",
     "@greenwood/plugin-import-jsx": "^0.34.0-alpha.4",
+    "@types/node": "^24.19.4",
     "@web/test-runner": "^0.13.13",
     "@web/test-runner-junit-reporter": "^0.4.4",
     "@web/test-runner-puppeteer": "^0.10.0",
