@@ -1,49 +1,44 @@
 import { expect } from '@esm-bundle/chai';
-import './todo-list-item.jsx';
+import TodoListItem from './todo-list-item.tsx';
 
 describe('Components/TodoListItem', () => {
 
   describe('Default Behavior', () => {
-    let todoListItem;
+    let todoListItem: TodoListItem;
 
-    beforeEach(async () => {
-      todoListItem = document.createElement('wcc-todo-list-item');
-  
+    beforeEach(() => {
+      todoListItem = document.createElement('wcc-todo-list-item') as TodoListItem;
+
       document.body.appendChild(todoListItem);
-  
-      await todoListItem.updateComplete;
     });
-      
-    it('should have no content output', () => { 
+
+    it('should have no content output', () => {
       expect(todoListItem.textContent).to.equal('');
     });
 
     afterEach(() => {
       todoListItem.remove();
-      todoListItem = null;
     });
   });
 
   describe('Todo Display Output Behavior', () => {
-    let todoListItem;
+    let todoListItem: TodoListItem;
 
-    beforeEach(async () => {
+    beforeEach(() => {
       const now = new Date().getTime();
 
-      todoListItem = document.createElement('wcc-todo-list-item');
+      todoListItem = document.createElement('wcc-todo-list-item') as TodoListItem;
       todoListItem.setAttribute('todo', JSON.stringify({
         completed: false,
         task: 'run errands',
         id: now,
         created: now
       }));
-  
+
       document.body.appendChild(todoListItem);
-  
-      await todoListItem.updateComplete;
     });
 
-    it('should display the task value', () => { 
+    it('should display the task value', () => {
       const output = todoListItem.querySelectorAll('span')[0];
 
       expect(output.textContent).to.contain('run errands');
@@ -53,7 +48,6 @@ describe('Components/TodoListItem', () => {
 
     afterEach(() => {
       todoListItem.remove();
-      todoListItem = null;
     });
   });
 

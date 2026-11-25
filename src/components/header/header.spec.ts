@@ -1,25 +1,22 @@
 import { expect } from '@esm-bundle/chai';
-import './header.jsx';
+import Header from './header.tsx';
 
 describe('Components/Header', () => {
-  let header;
+  let header: Header;
 
-  beforeEach(async () => {
-    header = document.createElement('wcc-header');
+  beforeEach(() => {
+    header = document.createElement('wcc-header') as Header;
 
     document.body.appendChild(header);
-
-    await header.updateComplete;
   });
 
   afterEach(() => {
     header.remove();
-    header = null;
   });
 
   describe('Default Behavior', () => {
-    
-    it('should have a greeting', () => { 
+
+    it('should have a greeting', () => {
       const greeting = header.querySelectorAll('header h2')[0];
 
       expect(greeting.innerHTML).to.equal('Todo App Example');

@@ -1,27 +1,24 @@
 import { expect } from '@esm-bundle/chai';
-import './footer.jsx';
+import Footer from './footer.tsx';
 
 describe('Components/Footer', () => {
-  let footer;
+  let footer: Footer;
 
-  beforeEach(async () => {
-    footer = document.createElement('wcc-footer');
+  beforeEach(() => {
+    footer = document.createElement('wcc-footer') as Footer;
 
     document.body.appendChild(footer);
-
-    await footer.updateComplete;
   });
 
   afterEach(() => {
     footer.remove();
-    footer = null;
   });
 
   describe('Default Behavior', () => {
-    let content;
-    
+    let content: HTMLAnchorElement;
+
     beforeEach(() => {
-      content = footer.querySelectorAll('footer a')[0];
+      content = footer.querySelectorAll<HTMLAnchorElement>('footer a')[0];
     });
 
     it('should have a link to the project that displays the project name', () => {

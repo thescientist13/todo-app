@@ -1,10 +1,8 @@
 export default class Header extends HTMLElement {
-  // TODO would be nice for WCC to auto render somehow?
   connectedCallback() {
     this.render();
   }
 
-  // inline CSS / <style> not supported
   render() {
     return (
       <header>        
